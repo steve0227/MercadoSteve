@@ -1,7 +1,8 @@
 import React, { useState,useContext } from "react";
 import Pagination from "react-js-pagination";
 import {FetchItemsContext} from './itemsProvider';
-require("bootstrap/less/bootstrap.less");
+require("../../node_modules/bootstrap-less/bootstrap/bootstrap.less");
+
 
  
  const Pagination1 =({nResults})=> {
@@ -26,6 +27,9 @@ require("bootstrap/less/bootstrap.less");
     return (
       <div className="pagination">
         <Pagination
+          itemClass="page-item"
+          linkClass="page-link"
+          hideDisabled
           activePage={state}
           itemsCountPerPage={50}
           totalItemsCount={results}

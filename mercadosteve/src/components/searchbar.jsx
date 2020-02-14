@@ -8,6 +8,10 @@ const SearchBar =()=>{
     return (
     <div>
         <nav className="navbar navbar-light bg-light">
+        <div class="navbar-brand" >
+    <img src="" width="30" height="30" class="d-inline-block align-top" alt=""></img>
+    Mercados Steve
+  </div>
         <form className="form-inline" onSubmit={e=>{
             e.preventDefault();
             setLoading(true);
