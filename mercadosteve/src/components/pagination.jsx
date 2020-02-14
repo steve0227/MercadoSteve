@@ -4,13 +4,22 @@ import {FetchItemsContext} from './itemsProvider';
 //require("bootstrap/less/bootstrap.less");
 
  
- const Pagination1 =()=> {
-  const [state, setState]=useState(1)
+ const Pagination1 =(nResults)=> {
+
+  const [state, setState]=useState(1);
+  const results=0;
+  
      const {loadMore}= useContext(FetchItemsContext);
+     console.log(`resultados en pagination results ${results}`); 
+     console.log(`resultados en pagination nResults `+nResults); 
+     
+
   const handlePageChange=(pageNumber) =>{
+    
     console.log(`active page is ${pageNumber}`);
     loadMore(pageNumber);
     setState(pageNumber);
+    
   }
  
   
@@ -19,7 +28,7 @@ import {FetchItemsContext} from './itemsProvider';
         <Pagination
           activePage={state}
           itemsCountPerPage={50}
-          totalItemsCount={450}//cambiar por los resultados arrojados por la appi
+          totalItemsCount={450}//cambiar por los resultados arrojados por la appi  /results
           pageRangeDisplayed={5}
           onChange={handlePageChange}
         />

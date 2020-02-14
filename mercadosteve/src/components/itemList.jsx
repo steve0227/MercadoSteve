@@ -1,7 +1,8 @@
 import React from "react";
 import Item from "./item"
 import Pagination1 from "./pagination";
-const ItemList =({items,loading})=>{
+const ItemList =({items,loading,nResults})=>{
+  console.log(`resultados en itemlist ${nResults}`)
     return (
         <div>
             {!items.length ? (
@@ -14,7 +15,8 @@ const ItemList =({items,loading})=>{
               <Item item={item} key={item.id} />
             ))}
           </div>
-          <Pagination1></Pagination1>
+          
+          <Pagination1 nResults={nResults}/>
         </div>
       )}
         </div>
