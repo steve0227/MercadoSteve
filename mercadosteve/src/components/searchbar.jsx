@@ -1,18 +1,17 @@
-import React,{useState} from "react";
+import React,{useState, useContext} from "react";
 import ItemList from "./itemList";
+import {FetchItemsContext} from './itemsProvider';
 const SearchBar =()=>{
     const [search,setSearch]=useState('');
-    const [items,setItems]=useState([]);
     const [loading,setLoading]=useState(false);
+    const {fetchItems, items} = useContext(FetchItemsContext);
     return (
     <div>
         <nav className="navbar navbar-light bg-light">
-        <form className="form-inline" onClick={async  e=>{
+        <form className="form-inline" onSubmit={e=>{
             e.preventDefault();
-            const response =await (await fetch(`https://api.mercadolibre.com/sites/MCO/search?q=${search}`)).json()
-            setItems(response.results)
             setLoading(true);
-            console.log(response) 
+            fetchItems(search);
         }}>
             <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" value={search} onChange={e=>{
                 setSearch(e.target.value);

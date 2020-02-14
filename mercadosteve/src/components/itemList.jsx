@@ -1,5 +1,6 @@
 import React from "react";
 import Item from "./item"
+import Pagination1 from "./pagination";
 const ItemList =({items,loading})=>{
     return (
         <div>
@@ -13,7 +14,7 @@ const ItemList =({items,loading})=>{
               <Item item={item} key={item.id} />
             ))}
           </div>
-          <button >Load more</button>
+          <Pagination1></Pagination1>
         </div>
       )}
         </div>
